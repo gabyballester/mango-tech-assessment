@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/gabyballester/slider-range-selector-tech-assessment/issues"
   },
-  "homepage": "https://github.com/gabyballester/slider-range-selector-tech-assessment#readme"
+  "homepage": "https://github.com/gabyballester/slider-range-selector-tech-assessment#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
+  }
 }
