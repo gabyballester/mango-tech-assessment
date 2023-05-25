@@ -2,7 +2,7 @@
 	"name": "slider-range-selector-tech-assessment",
 	"version": "1.0.0",
 	"description": "Mango slider range selector tech assessment",
-	"main": "index.js",
+	"main": "index.jsx",
 	"scripts": {
 		"start": "webpack-dev-server .",
 		"build": "webpack .",
@@ -21,8 +21,10 @@
 	},
 	"homepage": "https://github.com/gabyballester/slider-range-selector-tech-assessment#readme",
 	"dependencies": {
+		"@emotion/styled": "^11.11.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.11.2",
 		"sass": "^1.62.1"
 	},
 	"devDependencies": {
