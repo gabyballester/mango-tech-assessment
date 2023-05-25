@@ -6,11 +6,10 @@ Slider Range Selector
 
 ### Project config
 
-- No framework used, setup manually.
+- No framework used, manually setup.
 - Uses React library.
 - Supports js files and any kind css file (css, scss, modules).
-
-- Includes Husky precommit.
+- Includes Emotion Styled Components Library
 
 ### In order tu see the project
 
@@ -24,4 +23,4 @@ Slider Range Selector
 
 #### 3. To see it in the browser, open the url
 
-[http://localhost:3000](http://localhost:3000)
+[http://localhost:8080](http://localhost:8080)
