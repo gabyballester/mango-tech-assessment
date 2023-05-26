@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { StyledInput } from './StyledInput';
-import { StyledWrapper } from './StyledWrapper';
+import { StyledInpupWrapper } from './StyledInputWrapper';
 
 export const CustomInput = ({
 	handleBlur,
@@ -16,7 +16,7 @@ export const CustomInput = ({
 	}, [inputRef]);
 
 	return (
-		<StyledWrapper onBlur={handleBlur}>
+		<StyledInpupWrapper onBlur={handleBlur}>
 			<StyledInput
 				onKeyDown={onEnterKeyDown}
 				ref={inputRef}
@@ -27,6 +27,6 @@ export const CustomInput = ({
 				value={inputValue}
 			/>
 			<span>€</span>
-		</StyledWrapper>
+		</StyledInpupWrapper>
 	);
 };

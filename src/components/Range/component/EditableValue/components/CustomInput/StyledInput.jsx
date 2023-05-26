@@ -1,11 +1,18 @@
 import styled from '@emotion/styled';
 
 export const StyledInput = styled('input')({
-	textAlign: 'right',
-	marginRight: '.1rem',
-	height: '1.1rem',
+	display: 'block',
 	width: '100%',
-	maxWidth: 'fit-content',
-	fontSize: '.9rem',
+	height: '100%',
+	marginRight: '10px',
+	border: '1px solid #ccc',
 	outline: 'none',
+	maxWidth: '100%',
+	textAlign: 'right',
+	'&::-webkit-outer-spin-button': {
+		appearance: 'none',
+	},
+	'&::-webkit-inner-spin-button': {
+		appearance: 'none',
+	},
 });

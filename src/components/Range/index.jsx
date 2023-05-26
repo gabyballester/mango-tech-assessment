@@ -1,69 +1,52 @@
-import React, { useEffect } from 'react';
-import { EditableValue } from './component/EditableValue';
+import React, { useEffect, useState } from 'react';
 
-import styles from './Range.modules.scss';
+import { useFetch } from './hooks/useFetch';
 import { useRange } from './hooks/useRange';
 
+import { EditableValue } from './component/EditableValue';
+import { CustomSlider } from './component/CustomSlider';
+
+import styles from './Range.modules.scss';
+
 export const Range = () => {
+	const url = 'https://demo4953569.mockable.io/';
+	const { isLoading, initialRange, hasError } = useFetch(url);
+
 	const {
 		errorMessage,
-		setErrorMessage,
 		rangeValues,
 		setRangeValues,
 		inputValues,
 		setInputValues,
-		isEditing,
-		setIsEditing,
-		getInitialValuesService,
-		touchedLabelToEdit,
-		handleChange,
+		editableValueProps,
+		customSliderProps,
 	} = useRange();
 
 	useEffect(() => {
-		const data = getInitialValuesService();
-		setRangeValues(data);
-		setInputValues(data);
-	}, []);
+		setRangeValues(initialRange);
+		setInputValues(initialRange);
+	}, [initialRange]);
 
-	const commonEditableValueProps = {
-		touchedLabelToEdit,
-		handleChange,
-		setIsEditing,
-		isEditing,
-		setErrorMessage,
-		rangeValues,
-		setRangeValues,
-		inputValues,
-		setInputValues,
-	};
+	4;
+	if (!isLoading && hasError) {
+		return <p className={styles.hasError}>Server Error: Check the url</p>;
+	}
 
-	const editableValueProps = [
-		{
-			isEdit: isEditing.min,
-			rangeValue: rangeValues.min,
-			inputValue: inputValues.min,
-			field: 'min',
-			key: 'min',
-			...commonEditableValueProps,
-		},
-		{
-			isEdit: isEditing.max,
-			rangeValue: rangeValues.max,
-			inputValue: inputValues.max,
-			field: 'max',
-			key: 'max',
-			...commonEditableValueProps,
-		},
-	];
-
-	return (
+	return isLoading ? (
+		<p>Loading...</p>
+	) : (
 		<div className={styles.rangeWrapper}>
-			<div className={styles.rangeContent}>
-				{editableValueProps.map((editableValue) => {
-					return <EditableValue {...editableValue} />;
-				})}
+			<EditableValue {...editableValueProps.min} />
+			<div className={styles.rangeContainer}>
+				<div className={styles.grayline}></div>
+				<CustomSlider {...customSliderProps.min} />
+				<CustomSlider {...customSliderProps.max} />
 			</div>
-			<p className={errorMessage ? styles.show : styles.hide}>{errorMessage}</p>
+			<EditableValue {...editableValueProps.max} />
+			<p className={errorMessage || hasError ? styles.show : styles.hide}>
+				{errorMessage}
+				{hasError}
+			</p>
 		</div>
 	);
 };
