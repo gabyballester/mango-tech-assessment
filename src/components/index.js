@@ -1,3 +1,2 @@
-export { Range } from "./Range";
-export { Navbar } from "./Nabvar";
-
+export { Range } from './Range';
+export { Navbar } from './Nabvar';

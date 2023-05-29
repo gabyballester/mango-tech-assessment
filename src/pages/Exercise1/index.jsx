@@ -6,7 +6,7 @@ export const Exercise1 = () => {
 	return (
 		<div className={styles.mainContainer}>
 			<p className={styles.title}>Exercise 1: Normal Range</p>
-				<Range />
+			<Range />
 		</div>
 	);
 };

@@ -1,3 +1,2 @@
-export { CustomLabel } from "./CustomLabel";
-export { CustomInput } from "./CustomInput";
-
+export { CustomLabel } from './CustomLabel';
+export { CustomInput } from './CustomInput';

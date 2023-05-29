@@ -11,7 +11,7 @@ Slider Range Selector
 - Supports js files and any kind css file (css, scss, modules).
 - Includes Emotion Styled Components Library
 
-### In order tu see the project
+### Starting the development environment
 
 #### 1. Install dependencies
 
@@ -24,3 +24,11 @@ Slider Range Selector
 #### 3. To see it in the browser, open the url
 
 [http://localhost:8080](http://localhost:8080)
+
+### In to format the code with prettier
+
+`npm run format`
+
+### In to create a production build
+
+`npm run build`

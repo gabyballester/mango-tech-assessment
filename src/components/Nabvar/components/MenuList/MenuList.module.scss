@@ -1,18 +1,18 @@
 .ul {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  >:first-child {
-    margin-right: 1rem;
-  }
+	> :first-child {
+		margin-right: 1rem;
+	}
 }
 
 a {
-  list-style: none;
-  text-decoration: none;
-  font-size: 1.2rem;
+	list-style: none;
+	text-decoration: none;
+	font-size: 1.2rem;
 }
 
 .active {
-  color: blue;
+	color: blue;
 }
