@@ -1,10 +1,10 @@
 export const key = {
-  normalRange: 'normalRange',
-}
+	normalRange: 'normalRange',
+};
 
 export const api = {
-  baseUrl: 'https://demo4953569.mockable.io',
-  endpoint: {
-    normalRange: '/normalRange'
-  }
-}
+	baseUrl: 'https://demo4953569.mockable.io',
+	endpoint: {
+		normalRange: '/normalRange',
+	},
+};

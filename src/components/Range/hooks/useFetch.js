@@ -8,13 +8,13 @@ export const useFetch = (type) => {
 	const [hasError, setHasError] = useState('');
 
 	const fetchData = async () => {
-		if (!type) return
+		if (!type) return;
 		let res;
 
 		try {
 			setIsLoading(true);
 			if (type === key.normalRange) {
-				res = await getNormalRangeService()
+				res = await getNormalRangeService();
 			}
 
 			setInitialRange(res);
