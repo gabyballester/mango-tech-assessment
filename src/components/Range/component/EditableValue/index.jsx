@@ -1,8 +1,8 @@
 import React from 'react';
-
-import styles from './EditableValue.modules.scss';
 import { CustomInput, CustomLabel } from './components';
 import { useEditableValue } from './hooks/useEditableValue';
+
+import styles from './EditableValue.modules.scss';
 
 export const EditableValue = ({
 	isEdit,
