@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import styles from './EditableValue.modules.scss';
 import { CustomInput, CustomLabel } from './components';

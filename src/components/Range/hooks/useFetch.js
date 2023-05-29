@@ -1,18 +1,23 @@
 import { useState, useEffect } from 'react';
+import { getNormalRangeService } from '../../../api/getNormalRange';
+import { key } from '../../../constants';
 
-export const useFetch = (url) => {
+export const useFetch = (type) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [initialRange, setInitialRange] = useState({});
 	const [hasError, setHasError] = useState('');
 
-	const getData = async () => {
-		setIsLoading(true);
+	const fetchData = async () => {
+		if (!type) return
+		let res;
+
 		try {
 			setIsLoading(true);
-			const apiResponse = await fetch(url);
-			const json = await apiResponse.json();
-			console.log(json);
-			setInitialRange(json);
+			if (type === key.normalRange) {
+				res = await getNormalRangeService()
+			}
+
+			setInitialRange(res);
 		} catch (error) {
 			setHasError(error);
 		}
@@ -20,7 +25,7 @@ export const useFetch = (url) => {
 	};
 
 	useEffect(() => {
-		getData();
+		fetchData();
 	}, []);
 
 	return { isLoading, initialRange, hasError };

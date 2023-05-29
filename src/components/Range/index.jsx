@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
 import { useFetch } from './hooks/useFetch';
 import { useRange } from './hooks/useRange';
 
@@ -7,16 +6,14 @@ import { EditableValue } from './component/EditableValue';
 import { CustomSlider } from './component/CustomSlider';
 
 import styles from './Range.modules.scss';
+import { api, key } from '../../constants';
 
 export const Range = () => {
-	const url = 'https://demo4953569.mockable.io/';
-	const { isLoading, initialRange, hasError } = useFetch(url);
+	const { isLoading, initialRange, hasError } = useFetch(key.normalRange);
 
 	const {
 		errorMessage,
-		rangeValues,
 		setRangeValues,
-		inputValues,
 		setInputValues,
 		editableValueProps,
 		customSliderProps,
