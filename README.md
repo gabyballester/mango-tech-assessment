@@ -8,7 +8,7 @@ Slider Range Selector
 
 - No framework used, manually setup.
 - Uses React library.
-- Supports js files and any kind css file (css, scss, modules).
+- Supports js and scss files.
 - Includes Emotion Styled Components Library
 
 ### Starting the development environment
@@ -21,14 +21,18 @@ Slider Range Selector
 
 `npm start`
 
-#### 3. To see it in the browser, open the url
+It automatically opens [http://localhost:8080](http://localhost:8080) in the browser.
 
-[http://localhost:8080](http://localhost:8080)
+### Other available scripts
 
-### In to format the code with prettier
+#### 3. Testing script
+
+`npm test`
+
+#### 4. Prettier format script
 
 `npm run format`
 
-### In to create a production build
+#### 5. Production build script
 
 `npm run build`
