@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Exercise1.modules.scss';
+import React from 'react';
 import { Range } from '../../components/Range';
+import { BaseExercise } from '../../components/BaseExercise';
+import { api } from '../../constants';
 
 export const Exercise1 = () => {
 	return (
-		<div className={styles.mainContainer}>
-			<p className={styles.title}>Exercise 1: Normal Range</p>
-			<Range />
-		</div>
+		<BaseExercise title="Exercise 1: Normal Range">
+			<Range endpoint={api.endpoint.normalRange} />
+		</BaseExercise>
 	);
 };

@@ -3,6 +3,7 @@ import { CustomInput, CustomLabel } from './components';
 import { useEditableValue } from './hooks/useEditableValue';
 
 import styles from './EditableValue.modules.scss';
+import { api } from '../../../../constants';
 
 export const EditableValue = ({
 	isEdit,
@@ -17,6 +18,8 @@ export const EditableValue = ({
 	isEditing,
 	touchedLabelToEdit,
 	setErrorMessage,
+	endpoint,
+	fixedRange,
 }) => {
 	const { handleBlur, onEnterKeyDown } = useEditableValue({
 		inputValue,
@@ -30,7 +33,7 @@ export const EditableValue = ({
 
 	return (
 		<div className={styles.amountWrapper}>
-			{isEdit ? (
+			{isEdit && endpoint === api.endpoint.normalRange ? (
 				<CustomInput
 					handleBlur={handleBlur}
 					handleChange={handleChange}
@@ -43,7 +46,11 @@ export const EditableValue = ({
 				<CustomLabel
 					touchedLabelToEdit={touchedLabelToEdit}
 					field={field}
-					rangeValue={rangeValue}
+					rangeValue={
+						endpoint === api.endpoint.fixedRange
+							? fixedRange[rangeValue]
+							: rangeValue
+					}
 				/>
 			)}
 		</div>
