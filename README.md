@@ -19,7 +19,7 @@ Slider Range Selector
 
 #### 2. Run the development server
 
-`npm start`
+`npm run start`
 
 It automatically opens [http://localhost:8080](http://localhost:8080) in the browser.
 
