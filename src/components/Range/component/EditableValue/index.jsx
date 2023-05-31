@@ -4,6 +4,7 @@ import { useEditableValue } from './hooks/useEditableValue';
 
 import styles from './EditableValue.modules.scss';
 import { api } from '../../../../constants';
+import { useFetch } from '../../hooks/useFetch';
 
 export const EditableValue = ({
 	isEdit,
@@ -31,9 +32,11 @@ export const EditableValue = ({
 		setIsEditing,
 	});
 
+	const { isNormalRange } = useFetch(endpoint);
+
 	return (
 		<div className={styles.amountWrapper}>
-			{isEdit && endpoint === api.endpoint.normalRange ? (
+			{isEdit && isNormalRange ? (
 				<CustomInput
 					handleBlur={handleBlur}
 					handleChange={handleChange}
@@ -44,12 +47,11 @@ export const EditableValue = ({
 				/>
 			) : (
 				<CustomLabel
+					isNormalRange={isNormalRange}
 					touchedLabelToEdit={touchedLabelToEdit}
 					field={field}
 					rangeValue={
-						endpoint === api.endpoint.fixedRange
-							? fixedRange[rangeValue]
-							: rangeValue
+						isNormalRange ? rangeValue : fixedRange[rangeValue]
 					}
 				/>
 			)}

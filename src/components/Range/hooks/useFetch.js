@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { key } from '../../../constants';
+import { api, key } from '../../../constants';
 import { getRangeService } from '../../../api/getRangeService';
 
 export const useFetch = (endpoint) => {
@@ -7,30 +7,33 @@ export const useFetch = (endpoint) => {
 	const [initialRange, setInitialRange] = useState({});
 	const [hasError, setHasError] = useState('');
 	const [fixedRange, setFixedRange] = useState([]);
+	const isNormalRange = endpoint === api.endpoint.normalRange;
 
 	const fetchData = async () => {
 		if (!endpoint) return;
-		let res;
-
-		try {
-			setIsLoading(true);
-			if (endpoint === key.normalRange) {
-				res = await getRangeService(endpoint);
+		setIsLoading(true);
+		if (endpoint === key.normalRange) {
+			const response = await getRangeService(endpoint);
+			if (response.status === key.KO) {
+				setHasError(response.message);
+			} else {
+				setInitialRange(response.data);
 			}
-
-			if (endpoint === key.fixedRange) {
-				const { rangeValues } = await getRangeService(endpoint);
-				setFixedRange(rangeValues);
-				res = {
-					min: 0,
-					max: rangeValues.length - 1,
-				};
-			}
-
-			setInitialRange(res);
-		} catch (error) {
-			setHasError(error);
 		}
+
+		if (endpoint === key.fixedRange) {
+			const response = await getRangeService(endpoint);
+			if (response.status === key.KO) {
+				setHasError(response.message);
+			} else {
+				setFixedRange(response.data.rangeValues);
+				setInitialRange({
+					min: 0,
+					max: response.data.rangeValues.length - 1 || 0,
+				});
+			}
+		}
+
 		setIsLoading(false);
 	};
 
@@ -38,5 +41,12 @@ export const useFetch = (endpoint) => {
 		fetchData();
 	}, []);
 
-	return { isLoading, initialRange, hasError, fixedRange, setFixedRange };
+	return {
+		isLoading,
+		initialRange,
+		hasError,
+		fixedRange,
+		setFixedRange,
+		isNormalRange,
+	};
 };

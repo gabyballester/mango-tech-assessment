@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { key } from '../../../constants';
 
 export const useRange = () => {
 	const [errorMessage, setErrorMessage] = useState('');
@@ -30,12 +31,12 @@ export const useRange = () => {
 		const name = e.target.name;
 		const value = e.target.value;
 
-		if (name === 'min') {
+		if (name === key.min) {
 			if (value > rangeValues.max) return;
 			canContinue = true;
 		}
 
-		if (name === 'max') {
+		if (name === key.max) {
 			if (value < rangeValues.min) return;
 			canContinue = true;
 		}

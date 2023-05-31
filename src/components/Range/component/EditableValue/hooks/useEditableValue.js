@@ -1,3 +1,5 @@
+import { key } from "../../../../../constants";
+
 export const useEditableValue = ({
 	inputValue,
 	rangeValues,
@@ -29,7 +31,7 @@ export const useEditableValue = ({
 	const validateMinMaxRange = (id) => {
 		let canContinue;
 		let message;
-		if (id === 'min') {
+		if (id === key.min) {
 			if (inputValue > rangeValues.max) {
 				message = 'Max value, ' + rangeValues.max;
 				canContinue = false;
@@ -41,7 +43,7 @@ export const useEditableValue = ({
 			}
 		}
 
-		if (id === 'max') {
+		if (id === key.max) {
 			if (inputValue < 0) {
 				message = 'Min value: ' + rangeValues.min;
 				canContinue = false;

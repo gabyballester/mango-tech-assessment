@@ -37,7 +37,7 @@ describe('Exercise 2 ', () => {
 
 	it('Should render title', () => {
 		const text = 'Exercise 2: Fixed Range';
-		const titleElement = screen.getAllByText(text)[0];
+		const titleElement = screen.getByText(text);
 		expect(titleElement).toBeInTheDocument();
 	});
 });

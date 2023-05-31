@@ -37,7 +37,7 @@ describe('Exercise 1 ', () => {
 
 	it('Should render title', () => {
 		const text = 'Exercise 1: Normal Range';
-		const titleElement = screen.getAllByText(text)[0];
+		const titleElement = screen.getByText(text);
 		expect(titleElement).toBeInTheDocument();
 	});
 });
