@@ -27,7 +27,7 @@ It automatically opens [http://localhost:8080](http://localhost:8080) in the bro
 
 #### 3. Testing script
 
-`npm test`
+`npm run test`
 
 #### 4. Prettier format script
 
