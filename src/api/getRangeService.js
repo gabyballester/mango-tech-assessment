@@ -20,7 +20,7 @@ export const getRangeService = async (endpoint) => {
 			}
 		}
 
-		if (endpoint === key.normalRange) {
+		if (endpoint === key.fixedRange) {
 			if (!data.hasOwnProperty('rangeValues') || !data.rangeValues.length) {
 				status = key.KO;
 				message = 'Malformed data';
