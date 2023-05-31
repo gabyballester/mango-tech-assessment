@@ -2,7 +2,7 @@
 	"name": "slider-range-selector-tech-assessment",
 	"version": "1.0.0",
 	"description": "Mango slider range selector tech assessment",
-	"main": "index.jsx",
+	"main": "./src/index.jsx",
 	"scripts": {
 		"start": "webpack-dev-server .",
 		"test": "jest --watch",
